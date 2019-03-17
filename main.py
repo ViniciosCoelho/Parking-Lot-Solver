@@ -1,4 +1,4 @@
-import WorkflowController
+from WorkflowController import WorkflowController
 
 if __name__ == '__main__':
     control = WorkflowController()
