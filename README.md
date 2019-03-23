@@ -4,7 +4,7 @@ This is a basic parking lot game solver based on "ECO-Resolution" concept. This 
 
 New cars can be set inside "initialize" function. Remeber to always set them like the following example:
 
-Y Y -> Car 1 (Vertical)
+Y Y -> Car 1 (Vertical)<br>
 X X -> Car 2 (Horizontal)
 
       0 0 Y 0 0
