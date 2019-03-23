@@ -2,10 +2,10 @@ from Car import Car
 from PrintHandler import PrintHandler
 
 class WorkflowController():
-    def __init__(self):
+    def __init__(self, spaceSize):
         self.__cars = []
-        self.__spaceSize = 5
-        self.__printHandler = PrintHandler(5)
+        self.__spaceSize = spaceSize
+        self.__printHandler = PrintHandler(spaceSize)
 
     def initialize(self):
         '''
@@ -16,19 +16,14 @@ class WorkflowController():
         car.setTargetPos(2, 3, 2, 4)
         self.__cars.append(car)
 
+        self.__printHandler.setTarget(car.getTargetPos()['firstPos'])
+        self.__printHandler.setTarget(car.getTargetPos()['secondPos'])
+
         car = Car(1, 2, 2, 2)
-        car.setTargetPos(1, 2, 2, 2)
         self.__cars.append(car)
 
         car = Car(0, 2, 0, 3)
-        car.setTargetPos(0, 2, 0, 3)
         self.__cars.append(car)
-
-        '''
-        car = Car(0, 4, 1, 4)
-        car.setTargetPos(0, 4, 1, 4)
-        self.__cars.append(car)
-        '''
     
     def start(self):
         print('Beginning...\n')
@@ -54,15 +49,12 @@ class WorkflowController():
 
             if assaulted is True:
                 self.processAssault(car)
-                self.printMoves()
             
             elif car.isSatisfied() is True:
                 continue
 
             else:
-                self.processSatisfy(car)
-                self.printMoves()
-    
+                self.processSatisfy(car)    
     
     def processAssault(self, car):
         horizontal = car.isHorizontal()
@@ -101,7 +93,7 @@ class WorkflowController():
             pos['secondPos']['x'] += xStep
             pos['secondPos']['y'] += yStep
 
-            car.setAssault(False, None)
+            self.printMoves()
         else:
             limitations = {
                 'firstPos': {
@@ -156,11 +148,11 @@ class WorkflowController():
 
             for pos in positions.values():
                 if pos['x'] is limitation1['x'] and pos['y'] is limitation1['y']:
-                    elem.setAssault(True, limitation1)
+                    elem.setAssault(limitation1)
                     return
 
                 elif pos['x'] is limitation2['x'] and pos['y'] is limitation2['y']:
-                    elem.setAssault(True, limitation2)
+                    elem.setAssault(limitation2)
                     return
 
     def processSatisfy(self, car):
@@ -198,6 +190,8 @@ class WorkflowController():
 
                 if car.isSatisfied():
                     stepBlocked = True
+                
+                self.printMoves()
             else:
                 limitations = {
                     'firstPos': {

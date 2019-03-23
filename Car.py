@@ -12,8 +12,7 @@ class Car():
         }
 
         self.__targetPosition = None
-        self.__assaulted = False
-        self.__limitation = None
+        self.__limitation = []
         self.__horizontal = self.defineOrientation(x1, x2)
 
     def defineOrientation(self, x1, x2):
@@ -54,6 +53,9 @@ class Car():
         return self.__targetPosition
 
     def isSatisfied(self):
+        if self.__targetPosition is None:
+            return True
+
         satisfied = False
 
         x1 = self.__position['firstPos']['x']
@@ -71,13 +73,11 @@ class Car():
         
         return satisfied
     
-    def setAssault(self, assault, limitation):
-        self.__assaulted = assault
-        if self.__limitation is None:
-            self.__limitation = limitation
+    def setAssault(self, limitation):
+        self.__limitation.append(limitation)
 
     def isAssaulted(self):
-        return self.__assaulted
+        return False if len(self.__limitation) is 0 else True
 
     def getPosition(self):
         return self.__position
@@ -86,4 +86,4 @@ class Car():
         return self.__horizontal
     
     def getLimitation(self):
-        return self.__limitation
+        return self.__limitation.pop(0)
