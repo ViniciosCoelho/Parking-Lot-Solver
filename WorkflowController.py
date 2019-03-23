@@ -12,18 +12,20 @@ class WorkflowController():
         Assuming here that the first position is the left one
         or the above one depending on the orientation.
         '''
-        car = Car(2, 0, 2, 1)
-        car.setTargetPos(2, 3, 2, 4)
-        self.__cars.append(car)
+        
+        car1 = Car(0, 2, 1, 2) # x1, y1, x2, y2. Vertical cars, top position always first.
+        car1.setTargetPos(3, 2, 4, 2) # To set a target position for this kind of car, follow the same rules as the line above.
+        self.__cars.append(car1)
 
-        self.__printHandler.setTarget(car.getTargetPos()['firstPos'])
-        self.__printHandler.setTarget(car.getTargetPos()['secondPos'])
+        self.__printHandler.setTarget(car1.getTargetPos()['firstPos'])
+        self.__printHandler.setTarget(car1.getTargetPos()['secondPos'])
 
-        car = Car(1, 2, 2, 2)
-        self.__cars.append(car)
+        car2 = Car(2, 3, 2, 4) # x1, y1, x2, y2. Horizontal cars, left position always first.
+        car2.setTargetPos(2, 0, 2, 1) # To set a target position for this kind of car, follow the same rules as the line above.
+        self.__cars.append(car2)
 
-        car = Car(0, 2, 0, 3)
-        self.__cars.append(car)
+        self.__printHandler.setTarget(car2.getTargetPos()['firstPos'])
+        self.__printHandler.setTarget(car2.getTargetPos()['secondPos'])
     
     def start(self):
         print('Beginning...\n')
