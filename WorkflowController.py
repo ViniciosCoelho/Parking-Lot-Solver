@@ -26,6 +26,9 @@ class WorkflowController():
 
         self.__printHandler.setTarget(car2.getTargetPos()['firstPos'])
         self.__printHandler.setTarget(car2.getTargetPos()['secondPos'])
+
+        car3 = Car(3, 2, 3, 3) # If target is not set, then this car is already satisfied.
+        self.__cars.append(car3)
     
     def start(self):
         print('Beginning...\n')

@@ -22,9 +22,9 @@ class PrintHandler():
         Button(bottomFrame, bg='blue').grid(column = 0, row = 2)
         Button(bottomFrame, bg='yellow').grid(column = 0, row = 3)
 
-        Label(bottomFrame, text="Car 1 ").grid(column = 1, row = 0)
-        Label(bottomFrame, text="Car 2 ").grid(column = 1, row = 1)
-        Label(bottomFrame, text="Car 3 ").grid(column = 1, row = 2)
+        Label(bottomFrame, text="Car 1").grid(column = 1, row = 0)
+        Label(bottomFrame, text="Car 2").grid(column = 1, row = 1)
+        Label(bottomFrame, text="Car 3").grid(column = 1, row = 2)
         Label(bottomFrame, text="Target").grid(column = 1, row = 3)
 
         self.__window.update()

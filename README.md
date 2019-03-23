@@ -21,3 +21,6 @@ Within the "initialize" function, define them as follows:
       car2 = Car(2, 3, 2, 4) # x1, y1, x2, y2. Horizontal cars, left position always first.
       car2.setTargetPos(2, 0, 2, 1) # To set a target position for this kind of car, follow the same rules as the line above.
       self.__cars.append(car2)
+
+      car3 = Car(3, 0, 3, 4) # If target is not set, then this car is already satisfied.
+      self.__cars.append(car2)
