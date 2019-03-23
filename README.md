@@ -14,6 +14,7 @@ X X -> Car 2 (Horizontal)
       0 0 0 0 0
 
 Within the "initialize" function, define them as follows:
+
       car1 = Car(0, 2, 1, 2) # x1, y1, x2, y2. Vertical cars, top position always first.
       car1.setTargetPos(3, 2, 4, 2) # To set a target position for this kind of car, follow the same rules as the line above.
       self.__cars.append(ca1)
