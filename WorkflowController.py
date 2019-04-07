@@ -31,11 +31,15 @@ class WorkflowController():
         self.__cars.append(car3)
     
     def start(self):
-        print('Beginning...\n')
         self.printMoves()
+        input('Press any key to begin.')
+        print('Beginning...\n')
 
         while self.problemSolved() is False:
             self.processStep()
+        
+        input('Press any key to end.')
+        print('Done!')
     
     def problemSolved(self):
         solved = True
