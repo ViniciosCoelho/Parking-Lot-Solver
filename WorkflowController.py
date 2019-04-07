@@ -32,13 +32,13 @@ class WorkflowController():
     
     def start(self):
         self.printMoves()
-        input('Press any key to begin.')
+        input('Press ENTER to begin.')
         print('Beginning...\n')
 
         while self.problemSolved() is False:
             self.processStep()
         
-        input('Press any key to end.')
+        input('Press ENTER to end.')
         print('Done!')
     
     def problemSolved(self):
